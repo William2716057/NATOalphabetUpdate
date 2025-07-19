@@ -60,8 +60,17 @@ function allWordsInDict(words, dict) {
 }
 
 // Input
-const aWordSpelledOut = readline();
-const inputWords = aWordSpelledOut.trim().split(/\s+/);
+//const aWordSpelledOut = readline();
+//const inputWords = aWordSpelledOut.trim().split(/\s+/);
+//const aWordSpelledOut = prompt("Enter word in alphabet code: ");
+
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+readline.question("Enter spelled-out words: ", (aWordSpelledOut) => {
+  const inputWords = aWordSpelledOut.trim().split(/\s+/);
 
 // Check against each dictionary
 if (allWordsInDict(inputWords, dict_1908)) {
@@ -83,3 +92,6 @@ if (allWordsInDict(inputWords, dict_1908)) {
 } else {
   console.log("Not found in any dictionary");
 }
+
+readline.close();
+});
